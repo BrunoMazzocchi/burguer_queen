@@ -23,7 +23,7 @@ class PopularBurger extends StatelessWidget {
           height: 280,
           child: ListView.builder(
               padding: const EdgeInsets.all(kDefaultPadding),
-              itemCount: 5,
+              itemCount: 1,
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => const BurgerCard()
