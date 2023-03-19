@@ -1,11 +1,12 @@
+import 'package:burguer_queen/models/burger.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 import '../../details/screen/burger_details.dart';
 
 class BurgerCard extends StatelessWidget {
-  const BurgerCard({Key? key}) : super(key: key);
-
+  const BurgerCard({Key? key, required this.burger}) : super(key: key);
+  final Burger burger;
   @override
   Widget build(BuildContext context) {
     Widget like() => Positioned(
@@ -38,9 +39,9 @@ class BurgerCard extends StatelessWidget {
               color: Colors.yellow,
               size: 20,
             ),
-            const Text(
-              " 4.5 ",
-              style: TextStyle(
+             Text(
+              " ${burger.rating} ",
+              style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 15,
                 fontWeight: FontWeight.normal,
@@ -51,9 +52,9 @@ class BurgerCard extends StatelessWidget {
               height: 15,
               color: Colors.grey,
             ),
-            const Text(
-              " 20 min",
-              style: TextStyle(
+             Text(
+              " ${burger.time} min",
+              style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 15,
                 fontWeight: FontWeight.normal,
@@ -64,15 +65,15 @@ class BurgerCard extends StatelessWidget {
     Widget price() => Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
+          children:  [
+            const  Icon(
               Icons.attach_money,
               color: Colors.yellow,
               size: 15,
             ),
             Text(
-              "10.00",
-              style: TextStyle(
+              "${burger.price}",
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
@@ -80,22 +81,28 @@ class BurgerCard extends StatelessWidget {
             ),
           ],
         );
-    Widget burgerImage() => const Hero(
-        tag: "burger",
+    Widget burgerImage() =>  Hero(
+        tag: burger,
         child: Image(
           image: NetworkImage(
-              "https://qph.cf2.quoracdn.net/main-qimg-e45b74969769e2579b6b1902494c6204"),
+              "${burger.image}"),
           width: 120,
           height: 100,
         ));
-    Widget burgerTitle() => const Text(
-          "Normal With Bacon",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        );
+    Widget burgerTitle() => SizedBox(
+      width: 120,
+      child: Text(
+        "${burger.name}",
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          overflow: TextOverflow.ellipsis,
+        ),
+        maxLines: 2,
+        textAlign: TextAlign.center,
+      ),
+    );
 
     return Stack(
       children: [
@@ -118,7 +125,7 @@ class BurgerCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const BurgerDetailsScreen(),
+                  builder: (context) =>  BurgerDetailsScreen(burger: burger,),
                 ),
               );
             },

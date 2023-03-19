@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 import '../../home/components/ingredient_card.dart';
-
+import '../../models/ingredient.dart' as model;
 class Ingredients extends StatelessWidget {
-  const Ingredients({Key? key}) : super(key: key);
+  final List<model.Ingredient>? ingredients;
+  const Ingredients({Key? key, required this.ingredients}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class Ingredients extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+          margin: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
           child: const Text(
             "Ingredients",
             style: TextStyle(
@@ -28,10 +29,12 @@ class Ingredients extends StatelessWidget {
           width: size.width,
           child: ListView.builder(
             padding: const EdgeInsets.all(0),
-            itemCount: 10,
+            itemCount: ingredients!.length,
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => const IngredientCard(),
+            itemBuilder: (context, index) => IngredientCard(
+              ingredient: ingredients![index],
+            )
           ),
         ),
       ],

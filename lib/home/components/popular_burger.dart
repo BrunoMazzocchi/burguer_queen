@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../../models/burger.dart';
 import 'burger_card.dart';
 
 class PopularBurger extends StatelessWidget {
@@ -23,10 +24,12 @@ class PopularBurger extends StatelessWidget {
           height: 280,
           child: ListView.builder(
               padding: const EdgeInsets.all(kDefaultPadding),
-              itemCount: 1,
+              itemCount: burgers.length,
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => const BurgerCard()
+              itemBuilder: (context, index) => BurgerCard(
+                    burger: burgers[index],
+                  )
           ),
         )
       ],

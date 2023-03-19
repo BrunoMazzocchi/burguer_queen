@@ -14,8 +14,8 @@ class Body extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(
-              "https://assets.unileversolutions.com/recipes-v2/232055.jpg"),
+          image: AssetImage(
+              "assets/images/burger.png"),
           fit: BoxFit.cover,
         ),
       ),

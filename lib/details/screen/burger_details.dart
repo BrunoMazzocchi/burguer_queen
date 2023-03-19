@@ -1,11 +1,12 @@
 import 'package:burguer_queen/details/components/add_to_cart.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../../models/burger.dart';
 import '../components/body.dart';
 
 class BurgerDetailsScreen extends StatelessWidget {
-  const BurgerDetailsScreen({Key? key}) : super(key: key);
+  const BurgerDetailsScreen({Key? key, required this.burger}) : super(key: key);
+  final Burger burger;
   @override
   Widget build(BuildContext context) {
     AppBar buildAppBar() => AppBar(
@@ -40,7 +41,7 @@ class BurgerDetailsScreen extends StatelessWidget {
     );
     return Scaffold(
       appBar: buildAppBar(),
-      body: const  Body(),
+      body:   Body(burger: burger,),
       bottomNavigationBar: const AddToCart(),
     );
   }

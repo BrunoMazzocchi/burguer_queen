@@ -38,7 +38,7 @@ class AddToCart extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Container(
+          SizedBox(
             height: size.height * 0.06,
             width: size.width * 0.45,
             child: ElevatedButton(

@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 
-class TitleAndAmountController extends StatelessWidget {
-  const TitleAndAmountController({Key? key}) : super(key: key);
+class TitleAndAmountController extends StatefulWidget {
+  const TitleAndAmountController({Key? key, required this.title}) : super(key: key);
+  final String title;
+  @override
+  State<TitleAndAmountController> createState() => _TitleAndAmountControllerState();
+}
+
+class _TitleAndAmountControllerState extends State<TitleAndAmountController> {
+  int amount = 1;
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +22,9 @@ class TitleAndAmountController extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              width: size.width /2,
-              child: const Text("Normal burger with bacon",
-                style:  TextStyle(
+              width: size.width / 2.5,
+              child:  Text(widget.title,
+                style:  const TextStyle(
                   color: Colors.black,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -34,23 +42,34 @@ class TitleAndAmountController extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        if (amount > 1) {
+                          amount--;
+                        }
+                      });
+                    },
                     icon: const Icon(
                       Icons.remove,
                       color: Colors.black,
                       size: 15,
                     ),
+                    disabledColor: Colors.grey,
                   ),
-                  const Text(
-                    "1",
-                    style: TextStyle(
+                   Text(
+                    amount.toString(),
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 15,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        amount++;
+                      });
+                    },
                     icon: const Icon(
                       Icons.add,
                       color: Colors.black,

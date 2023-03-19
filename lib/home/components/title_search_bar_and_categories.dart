@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../../models/category.dart' as model;
 import 'category.dart';
 
 class TitleSearchBarAndCategories extends StatelessWidget {
@@ -54,23 +55,14 @@ class TitleSearchBarAndCategories extends StatelessWidget {
 
           ),
           const SizedBox(height: kDefaultPadding),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: const [
-                Category(
-                  category: "🍖 Beef",
-                ),
-                Category(
-                  category: "🧀 Cheese",
-                ),
-                Category(
-                  category: "🍤 Shrimp",
-                ),
-                Category(
-                  category: "🫘 Vegan",
-                ),
-              ],
+          SizedBox(
+            width: double.infinity,
+            height: 50,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: model.categories.length,
+              itemBuilder: (context, index) => Category(category: model.categories[index]),
             ),
           ),
           const SizedBox(height: kDefaultPadding),

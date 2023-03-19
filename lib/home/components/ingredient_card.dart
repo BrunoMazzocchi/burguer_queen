@@ -1,10 +1,11 @@
+import 'package:burguer_queen/models/ingredient.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 
 class IngredientCard extends StatelessWidget {
-  const IngredientCard({Key? key}) : super(key: key);
-
+  const IngredientCard({Key? key, required this.ingredient}) : super(key: key);
+  final Ingredient ingredient;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,14 +31,11 @@ class IngredientCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children:  [
-          const    Text("🧀",
-            style:  TextStyle(
-              color: Colors.black,
-              fontSize: 30,
-              fontWeight: FontWeight.normal,
-            ),
+          Image.network("${ingredient.image}",
+            width: 50,
+            height: 50,
           ),
-          Text("Cheese",
+          Text("${ingredient.name}",
             style:  TextStyle(
               color: Colors.grey[600],
               fontSize: 15,

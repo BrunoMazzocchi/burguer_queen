@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class Description extends StatelessWidget {
-  const Description({Key? key}) : super(key: key);
+  final String description;
+  const Description({Key? key, required this.description}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class Description extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+          margin: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
           child: const Text(
             "Description",
             style: TextStyle(
@@ -23,9 +24,9 @@ class Description extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
-          child: const Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-            style: TextStyle(
+          child:  Text(
+          description,
+            style: const  TextStyle(
               color: Colors.black,
               fontSize: 15,
               fontWeight: FontWeight.normal,
