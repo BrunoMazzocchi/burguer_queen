@@ -10,7 +10,7 @@ class BurgerDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppBar buildAppBar() => AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
       elevation: 0,
       title: const Text("Details",
           style:  TextStyle(

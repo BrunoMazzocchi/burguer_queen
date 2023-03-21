@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
 
     return AppBar(
       elevation: 0,
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
       leading: settingsButton(),
       actions: [profileImage()],
     );

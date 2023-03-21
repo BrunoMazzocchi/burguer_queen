@@ -1,3 +1,4 @@
+import 'package:burguer_queen/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/app.dart';
@@ -9,33 +10,35 @@ class SloganAndLoginOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget signInButton () => InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>  const App(),
+    Widget signInButton () => Row(
+      children: [
+        Expanded(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.orange,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+            ),
+            child: const Text(
+              "Sign in",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const App(),
+                ),
+              );
+            },
           ),
-        );
-      },
-      child: Container(
-        width: double.infinity,
-        height: 50,
-        decoration: const BoxDecoration(
-            color: Colors.orange,
-            borderRadius: BorderRadius.all(
-                Radius.circular(15)
-            )
         ),
-        child: const Center(
-          child: Text("Sign in",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
-            ),),
-        ),
-      ),
+      ],
     );
     Widget notHaveAccount() => Container(
         width: double.infinity,

@@ -1,3 +1,4 @@
+import 'package:burguer_queen/cart/screen/cart_screen.dart';
 import 'package:burguer_queen/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,7 @@ class _AppState extends State<App> {
           index: _currentIndex,
           children: const [
              HomeScreen(),
-             Center(child: Text("Cart")),
+             CartScreen(),
              Center(child: Text("Favorite")),
              Center(child: Text("Profile")),
           ],
