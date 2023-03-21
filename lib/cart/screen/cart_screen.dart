@@ -17,13 +17,6 @@ class CartScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       centerTitle: true,
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.delete,
-              color: Colors.black, size: 30.0),
-          onPressed: () {},
-        ),
-      ],
     );
 
 
