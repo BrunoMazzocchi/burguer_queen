@@ -18,9 +18,19 @@ class HomeScreen extends StatelessWidget {
     Widget profileImage() => Container(
           margin: const EdgeInsets.only(
             right: kDefaultPadding,
+            top: kDefaultPadding / 2,
+            bottom: kDefaultPadding / 2,
           ),
           decoration: BoxDecoration(
-            color: Colors.red[100],
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            color: Colors.white,
             borderRadius: const BorderRadius.all(
               Radius.circular(25),
             ),
@@ -31,37 +41,38 @@ class HomeScreen extends StatelessWidget {
           ),
         );
     Widget settingsButton() => Container(
-          margin: const EdgeInsets.only(
-            left: kDefaultPadding,
-            bottom: kDefaultPadding / 2,
+      margin: const EdgeInsets.only(
+        left: kDefaultPadding,
+        top: kDefaultPadding / 2,
+        bottom: kDefaultPadding / 2,
+      ),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 1,
+            blurRadius: 5,
+            offset: const Offset(0, 3), // changes position of shadow
           ),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(25),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 5,
-                offset: Offset(0, 5),
-              ),
-            ],
-          ),
-          child: IconButton(
-            icon: const Icon(
-              Icons.settings,
-              color: Colors.black,
-            ),
-            onPressed: () {},
-          ),
-        );
+        ],
+        color: Colors.white,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(25),
+        ),
+      ),
+      child: IconButton(
+        icon: const Icon(Icons.settings,
+            color: Colors.black, size: 20),
+        onPressed: () {},
+      ),
+    );
 
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.white,
       leading: settingsButton(),
       actions: [profileImage()],
+
     );
   }
 }

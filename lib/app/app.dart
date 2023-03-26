@@ -35,12 +35,6 @@ class _AppState extends State<App> {
         ),
         label: "",
       ),
-      const BottomNavigationBarItem(
-        icon: Icon(
-          Icons.person,
-        ),
-        label: "",
-      ),
     ];
     super.initState();
   }
@@ -56,7 +50,6 @@ class _AppState extends State<App> {
              HomeScreen(),
              CartScreen(),
              FavoriteScreen(),
-             Center(child: Text("Profile")),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(

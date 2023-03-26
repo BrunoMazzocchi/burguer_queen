@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../checkout/screen/checkout_screen.dart';
 import '../../constants.dart';
 import '../../models/burger.dart';
 import '../../models/category.dart';
@@ -195,7 +196,16 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
           padding: const EdgeInsets.symmetric(
               horizontal: kDefaultPadding * 2, vertical: kDefaultPadding / 2),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>  CheckoutScreen(
+                cart: cart,
+              ),
+            ),
+          );
+        },
         child: const Text('Checkout'),
       ),
     );
@@ -205,25 +215,30 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: cart.length,
-                itemBuilder: (context, index) {
-                  return burgerListTile(cart, index, size);
-                },
-              ),
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: cart.length,
+                    itemBuilder: (context, index) {
+                      return burgerListTile(cart, index, size);
+                    },
+                  ),
+                ),
+                const SizedBox(height: 10),
+                totalToPayRow(),
+                const SizedBox(height: 10),
+                elevatedCheckoutButton(size),
+                const SizedBox(height: 10),
+              ],
             ),
-            const SizedBox(height: 10),
-            totalToPayRow(),
-            const SizedBox(height: 10),
-            elevatedCheckoutButton(size),
-            const SizedBox(height: 10),
-          ],
-        ),
+          ),
+
+        ],
       ),
     );
   }
