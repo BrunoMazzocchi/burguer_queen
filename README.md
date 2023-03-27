@@ -1,16 +1,17 @@
-# burguer_queen
+Burger Queen
 
-A new Flutter project.
+A Flutter UI Design
 
-## Getting Started
+<h1 align="center">
+<img src="https://user-images.githubusercontent.com/68037905/227830158-88a3e392-0732-4a9d-ba2d-1304636ef360.png" width="170" height="350"/>
+<img src="https://user-images.githubusercontent.com/68037905/227830162-f11a6a7b-369a-4073-9b73-4964cd2599aa.png" width="170" height="350"/>
+<img src="https://user-images.githubusercontent.com/68037905/227830164-38525926-e6e2-4151-b069-31e640e43a5f.png" width="170" height="350"/>
+<img src="https://user-images.githubusercontent.com/68037905/227830169-b9ac0b79-9f24-49a4-8d65-85275cbeea85.png" width="170" height="350"/>
 
-This project is a starting point for a Flutter application.
+</h1>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+I followed these screens from Dribble
+- [BurgerQueen 👑 ~ Food app delivery full version](https://dribbble.com/shots/16363119-BurgerQueen-Food-app-delivery-full-version)
